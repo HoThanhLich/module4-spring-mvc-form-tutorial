@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>EmployeeList</title>
+</head>
+<body>
+<h2>Employees List</h2>
+<a th:href="@{/employee/create}"><h3>Add new Employee</h3></a></h3>
+<table id = "employees">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>contactNumber</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.contactNumber}"></td>
+        <td><a th:href="@{/products/edit/__${employee.id}__}">Edit</a></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

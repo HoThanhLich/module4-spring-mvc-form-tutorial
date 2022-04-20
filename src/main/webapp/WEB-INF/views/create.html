@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>EmployeeList</title>
+</head>
+<body>
+<div>
+    <h2>CreateForm</h2>
+    <a th:href="@{/employee}"><h3>Back to list</h3></a>
+</div>
+ <div>
+     <form th:action="@{/employee/create}" method="post" th:object="${employee}">
+         <input type="text" placeholder="Nhập ID" th:field="*{id}">
+         <input type="text" placeholder="Nhập Tên" th:field="*{name}">
+         <input type="text" placeholder="Số ĐT" th:field="*{contactNumber}">
+         <button>Tạo mới</button>
+     </form>
+ </div>
+
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
